@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 2px; /* Specified height */
+    /* background: linear-gradient(to right, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 0%, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 15%, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 100%); */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 29px; /* Set a specific slider handle width */
+    height: 29px; /* Slider handle height */
+    border-radius: 100%;
+    border: 0.5px solid rgba(0, 0, 0, 0.04);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 1px 0px;
+    background: #FFFFFF; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 29px; /* Set a specific slider handle width */
+    height: 29px; /* Slider handle height */
+    border-radius: 100%;
+    border: 0.5px solid rgba(0, 0, 0, 0.04);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 1px 0px;
+    background: #FFFFFF; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.smooth-transition {
+    transition: all 0.4s ease-in-out;
+}
+
+.btn {
+    @apply bg-black 
+    text-white
+    px-4 
+    py-3 
+    rounded-lg
+}
+
+.btn-outline {
+    @apply bg-[#F3F3F3] text-black
+}
+
+.btn-large {
+    @apply text-[18px]
+}
+
+.btn-medium {
+    @apply text-[16px]
+}
+
+.line-clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
