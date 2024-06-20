@@ -28,8 +28,19 @@ const Slider = ({ items, value, onChange, direction = 'right' }) => {
                 onChange={ handleChange }
                 className="slider"
                 style={{
+                    background: `-moz-linear-gradient(${direction === 'right' ? 'to right' : 'to left'}, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 0%, rgb(0, 0, 0) 0%, 
+                        rgb(0, 0, 0) ${ direction === 'right' ? position : (100 - position) }%, rgb(243 243, 243) ${ direction === 'right' ? position : (100 - position) }%, rgb(243, 243, 243) 100%)`,
+                    background: `-ms-linear-gradient(${direction === 'right' ? 'to right' : 'to left'}, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 0%, rgb(0, 0, 0) 0%, 
+                        rgb(0, 0, 0) ${ direction === 'right' ? position : (100 - position) }%, rgb(243 243, 243) ${ direction === 'right' ? position : (100 - position) }%, rgb(243, 243, 243) 100%)`,
+                    background: `-webkit-gradient(${direction === 'right' ? 'to right' : 'to left'}, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 0%, rgb(0, 0, 0) 0%, 
+                        rgb(0, 0, 0) ${ direction === 'right' ? position : (100 - position) }%, rgb(243 243, 243) ${ direction === 'right' ? position : (100 - position) }%, rgb(243, 243, 243) 100%)`,
+                    background: `-webkit-linear-gradient(${direction === 'right' ? 'to right' : 'to left'}, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 0%, rgb(0, 0, 0) 0%, 
+                        rgb(0, 0, 0) ${ direction === 'right' ? position : (100 - position) }%, rgb(243 243, 243) ${ direction === 'right' ? position : (100 - position) }%, rgb(243, 243, 243) 100%)`,
+                    background: `-o-linear-gradient(${direction === 'right' ? 'to right' : 'to left'}, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 0%, rgb(0, 0, 0) 0%, 
+                        rgb(0, 0, 0) ${ direction === 'right' ? position : (100 - position) }%, rgb(243 243, 243) ${ direction === 'right' ? position : (100 - position) }%, rgb(243, 243, 243) 100%)`,
                     background: `linear-gradient(${direction === 'right' ? 'to right' : 'to left'}, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 0%, rgb(0, 0, 0) 0%, 
-                        rgb(0, 0, 0) ${ direction === 'right' ? position : (100 - position) }%, rgb(243 243, 243) ${ direction === 'right' ? position : (100 - position) }%, rgb(243, 243, 243) 100%)`
+                        rgb(0, 0, 0) ${ direction === 'right' ? position : (100 - position) }%, rgb(243 243, 243) ${ direction === 'right' ? position : (100 - position) }%, rgb(243, 243, 243) 100%)`,
+                        
                 }}
             />
         </>
