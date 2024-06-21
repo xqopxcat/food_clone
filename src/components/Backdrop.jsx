@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
-// import { disableScroll, enableScroll } from '../helpers/disableScroll';
+import { disableScroll, enableScroll } from '../helpers/disableScroll';
 
 const Backdrop = ({ state, onClick }) => {
     useEffect(() => {
         if (state) {
-            document.body.style.display = 'block';
-            document.body.style.overflowY = 'hidden';
+            disableScroll();
         }
         return () => {
-            document.body.style.overflowY = 'visible';
+            enableScroll();
         }
     }, [state]);
     return (

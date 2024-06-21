@@ -15,19 +15,14 @@ function preventDefaultForScrollKeys(e) {
 
 // modern Chrome requires { passive: false } when adding event
 const supportsPassive = false;
-try {
-    window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
-      get: function () { supportsPassive = true; } 
-    }));
-} catch(e) {}
 
 const wheelOpt = supportsPassive ? { passive: false } : false;
 const wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
 
 // call this to Disable
 export const disableScroll = () => {
-    window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
-    window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+    window.addEventListener(wheelEvent, preventDefault, { passive: false }); // modern desktop
+    window.addEventListener('touchmove', preventDefault, { passive: false }); // mobile
     window.addEventListener('keydown', preventDefaultForScrollKeys, false);
 }
 
