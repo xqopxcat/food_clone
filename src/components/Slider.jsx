@@ -26,7 +26,12 @@ const Slider = ({ items, value, onChange, direction = 'right' }) => {
                 step="1"
                 value={ value }
                 onChange={ handleChange }
-                className={`slider gradient-to-r-${Math.floor(position)}`}
+                className={`slider gradient-to-${direction === 'right' ? 'r' : 'l'}-${Math.floor(position)}`}
+                // style={{
+                //     background: `
+                //         linear-gradient(${direction === 'right' ? 'to right' : 'to left'},
+                //         rgb(0, 0, 0) 0 ${ direction === 'right' ? position : (100 - position) }%, rgb(243 243, 243) ${ direction === 'right' ? position : (100 - position) }% 100%)`
+                // }}
             />
         </>
     )

@@ -44,6 +44,41 @@
     background: linear-gradient(to right, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgb(243, 243, 243) 100%, rgb(243, 243, 243) 100%)
 }
 
+.gradient-to-l-100 {
+    background: -moz-linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 0%, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 100%);
+    background: -webkit-linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 0%, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 100%);
+    background: -o-linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 0%, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 100%);
+    background: linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 0%, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 100%);
+}
+
+.gradient-to-l-75 {
+    background: -moz-linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 25%, rgb(243, 243, 243) 25%, rgb(243, 243, 243) 100%);
+    background: -webkit-linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 25%, rgb(243, 243, 243) 25%, rgb(243, 243, 243) 100%);
+    background: -o-linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 25%, rgb(243, 243, 243) 25%, rgb(243, 243, 243) 100%);
+    background: linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 25%, rgb(243, 243, 243) 25%, rgb(243, 243, 243) 100%);
+}
+
+.gradient-to-l-50 {
+    background: -moz-linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 50%, rgb(243, 243, 243) 50%, rgb(243, 243, 243) 100%);
+    background: -webkit-linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 50%, rgb(243, 243, 243) 50%, rgb(243, 243, 243) 100%);
+    background: -o-linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 50%, rgb(243, 243, 243) 50%, rgb(243, 243, 243) 100%);
+    background: linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 50%, rgb(243, 243, 243) 50%, rgb(243, 243, 243) 100%);
+}
+
+.gradient-to-l-25 {
+    background: -moz-linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 75%, rgb(243, 243, 243) 75%, rgb(243, 243, 243) 100%);
+    background: -webkit-linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 75%, rgb(243, 243, 243) 75%, rgb(243, 243, 243) 100%);
+    background: -o-linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 75%, rgb(243, 243, 243) 75%, rgb(243, 243, 243) 100%);
+    background: linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 75%, rgb(243, 243, 243) 75%, rgb(243, 243, 243) 100%);
+}
+
+.gradient-to-l-0 {
+    background: -moz-linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgb(243, 243, 243) 100%, rgb(243, 243, 243) 100%);
+    background: -webkit-linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgb(243, 243, 243) 100%, rgb(243, 243, 243) 100%);
+    background: -o-linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgb(243, 243, 243) 100%, rgb(243, 243, 243) 100%);
+    background: linear-gradient(to left, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgb(243, 243, 243) 100%, rgb(243, 243, 243) 100%);
+}
+
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
