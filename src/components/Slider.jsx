@@ -29,8 +29,8 @@ const Slider = ({ items, value, onChange, direction = 'right' }) => {
                 className="slider"
                 style={{
                     background: `
-                        -webkit-linear-gradient(${direction === 'right' ? 'to right' : 'to left'}, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 0%, rgb(0, 0, 0) 0%, 
-                        rgb(0, 0, 0) ${ direction === 'right' ? position : (100 - position) }%, rgb(243 243, 243) ${ direction === 'right' ? position : (100 - position) }%, rgb(243, 243, 243) 100%)`
+                        linear-gradient(${direction === 'right' ? 'to right' : 'to left'},
+                        rgb(0, 0, 0) 0 ${ direction === 'right' ? position : (100 - position) }%, rgb(243 243, 243) ${ direction === 'right' ? position : (100 - position) }% 100%)`
                 }}
             />
         </>

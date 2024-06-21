@@ -10,8 +10,8 @@
     height: 2px; /* Specified height */
     /* background: -moz-linear-gradient(to right, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 0%, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 30%, rgb(243, 243, 243) 30%, rgb(243, 243, 243) 100%);
     background: -webkit-linear-gradient(to right, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 0%, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 30%, rgb(243, 243, 243) 30%, rgb(243, 243, 243) 100%);
-    background: -o-linear-gradient(to right, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 0%, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 30%, rgb(243, 243, 243) 30%, rgb(243, 243, 243) 100%);
-    background: linear-gradient(to right, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 0%, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 30%, rgb(243, 243, 243) 30%, rgb(243, 243, 243) 100%); */
+    background: -o-linear-gradient(to right, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 0%, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 30%, rgb(243, 243, 243) 30%, rgb(243, 243, 243) 100%); */
+    /* background: linear-gradient(to right, rgb(243, 243, 243) 0%, rgb(243, 243, 243) 0%, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 30%, rgb(243, 243, 243) 30%, rgb(243, 243, 243) 100%); */
 }
 
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
