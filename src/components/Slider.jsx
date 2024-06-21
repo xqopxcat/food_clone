@@ -19,6 +19,7 @@ const Slider = ({ items, value, onChange, direction = 'right' }) => {
                     })
                 }
             </div>
+            <div>{`gradient-to-${direction === 'right' ? 'r' : 'l'}-${Math.floor(position)}`}</div>
             <input
                 type="range"
                 min="0"
