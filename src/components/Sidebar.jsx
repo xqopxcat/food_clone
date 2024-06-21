@@ -31,7 +31,7 @@ const Sidebar = () => {
                 </div>
             </header>
             <Backdrop state={ mobileMenuOpen } onClick={() => setMobileMenuOpen(false)} />
-            <div className={`absolute w-[300px] z-10 top-0 h-screen
+            <div className={`fixed w-[300px] z-10 top-0 h-screen
                 smooth-transition ${mobileMenuOpen ? 'left-0 opacity-100' : '-left-full opacity-0'}`}>
                 <aside className="h-full shadow-[0_0_25px_rgba(0,0,0,0.1)] bg-white p-6 md:hidden">
                 123
