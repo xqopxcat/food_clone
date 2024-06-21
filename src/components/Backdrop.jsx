@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 const Backdrop = ({ state, onClick }) => {
     useEffect(() => {
         if (state) {
+            document.body.style.position = 'relative';
             document.body.style.overflowY = 'hidden';
         }
         return () => {
