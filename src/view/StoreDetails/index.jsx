@@ -5,7 +5,6 @@ import { BsPersonPlusFill } from "react-icons/bs";
 import { details } from '../../constants/details';
 import { NavigationBar, HorizontalGridItem, VerticalGridItem, TabSwitch, TagButton } from "../../components";
 import { DELIVERY_TYPE } from "../Home";
-import { b64EncodeUnicode } from "../../helpers";
 
 
 const StoreDetails = () => {
@@ -21,16 +20,15 @@ const StoreDetails = () => {
         fareBadge,
         eatsPassExclusionBadge,
         distanceBadge,
-        etaRange
+        etaRange,
     } = filterDetails;
-    const sourceImage = b64EncodeUnicode(heroImageUrls.filter(({ width }) => width === 550 )[0].url)
     const imageSet = [...heroImageUrls].map(({ url, width }) => {
         return (`${url} ${width}w`)
     }).join();
     const sectionsMap = catalogSectionsMap[sections[0].uuid]
     const horizontalGrid = sectionsMap.filter(({ type }) => type === 'HORIZONTAL_GRID');
     const verticalGrid = sectionsMap.filter(({ type }) => type === 'VERTICAL_GRID');
-    console.log(verticalGrid);
+
     return (
         <div>
             <img 
@@ -119,9 +117,8 @@ const StoreDetails = () => {
                         <div className="pl-2">
                             <h3 className="mt-4 mb-3 pl-2 leading-7 text-[20px] font-bold">{ standardItemsPayload.title.text }</h3>
                             {
-                                standardItemsPayload.catalogItems.map(({ title, price, imageUrl, labelPrimary, itemDescription }) => {
+                                standardItemsPayload.catalogItems.map(({ uuid, title, price, imageUrl, labelPrimary, itemDescription }) => {
                                     const rating = labelPrimary.accessibilityText.split(', ')[1];
-                                    console.log(itemDescription);
                                     return (
                                         <>
                                             <VerticalGridItem
@@ -130,6 +127,7 @@ const StoreDetails = () => {
                                                 rating={ rating }
                                                 imageUrl={ imageUrl }
                                                 description={ itemDescription }
+                                                url={ `${uuid}` }
                                             />
                                             <div className="w-full border px-2 mb-3" />
                                         </>

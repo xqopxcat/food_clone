@@ -1,15 +1,17 @@
 import React from 'react';
 import { FaRegThumbsUp } from 'react-icons/fa6';
+import { Link } from "react-router-dom";
 
 const VerticalGridItem = ({
     title,
     price,
     rating,
     imageUrl,
-    description
+    description,
+    url
 }) => {
     return (
-        <>
+        <Link to={ url }>
             <div className="flex justify-between pl-2 pr-3 pb-3">
                 <div className="flex flex-col justify-center pt-1">
                     <div className="text-[16px] leading-5">
@@ -40,7 +42,7 @@ const VerticalGridItem = ({
                     )
                 }
             </div>
-        </>
+        </Link>
     );
 };
 

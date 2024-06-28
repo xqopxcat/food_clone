@@ -13,6 +13,10 @@ import Checkbox from './Checkbox';
 import TabSwitch from './TabSwitch';
 import HorizontalGridItem from './HorizontalGridItem';
 import VerticalGridItem from './VerticalGridItem';
+import ItemTag from './ItemTag';
+import RadioCard from './RadioCard';
+import QuantityCounter from './QuantityCounter';
+import QuantitySelector from './QuantitySelector';
 
 export {
     Backdrop,
@@ -29,5 +33,9 @@ export {
     Checkbox,
     TabSwitch,
     HorizontalGridItem,
-    VerticalGridItem
+    VerticalGridItem,
+    ItemTag,
+    RadioCard,
+    QuantityCounter,
+    QuantitySelector
 }
