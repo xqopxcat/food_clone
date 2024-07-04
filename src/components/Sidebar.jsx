@@ -13,7 +13,7 @@ const Sidebar = () => {
     return (
         <>
             <header>
-                <div className="w-full">
+                <div className="w-full mt-20">
                     <div className="flex justify-start items-center h-12 px-4">
                         <div className="mr-[10px] ml-[-6px]">
                             <button type="button" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="flex items-center justify-center h-9 w-9">
@@ -31,7 +31,7 @@ const Sidebar = () => {
                 </div>
             </header>
             <Backdrop state={ mobileMenuOpen } onClick={() => setMobileMenuOpen(false)} />
-            <div className={`fixed w-[300px] z-10 top-0 h-screen
+            <div className={`fixed w-[300px] z-10 top-20 h-screen
                 smooth-transition ${mobileMenuOpen ? 'left-0 opacity-100' : '-left-full opacity-0'}`}>
                 <aside className="flex flex-col gap-2 h-full shadow-[0_0_25px_rgba(0,0,0,0.1)] bg-white p-6 md:hidden">
                     <Link to="/">Home</Link>

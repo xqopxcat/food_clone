@@ -113,7 +113,7 @@ const Payment = () => {
     }
     
     return (
-        <div className="h-screen">
+        <div className="mt-20 h-screen">
             <div onClick={ onApplePayButtonClicked } className="apple-pay-button-with-text apple-pay-button-black-with-text">
                 <span className="text">Buy with</span>
                 <span className="logo"></span>
