@@ -11,7 +11,6 @@ const Payment = () => {
         }
         
         try {
-    
             // Define PaymentMethodData
             const paymentMethodData = [{
                 "supportedMethods": "https://apple.com/apple-pay",
@@ -51,10 +50,11 @@ const Payment = () => {
             };
             
             // Create PaymentRequest
+            console.log(PaymentRequest)
             const request = new PaymentRequest(paymentMethodData, paymentDetails, paymentOptions);
-                
             request.onmerchantvalidation = event => {
                 // Call your own server to request a new merchant session.
+                console.log(event)
                 const merchantSessionPromise = validateMerchant();
                 event.complete(merchantSessionPromise);
             };
@@ -115,7 +115,10 @@ const Payment = () => {
     
     return (
         <div className="h-screen">
-            <apple-pay-button onClick={ onApplePayButtonClicked } buttonstyle="black" type="plain" aria-hidden="false" style={{ display: 'block'}} locale="en-US">123</apple-pay-button>
+            <div onClick={ onApplePayButtonClicked } className="apple-pay-button-with-text apple-pay-button-black-with-text">
+                <span className="text">Buy with</span>
+                <span className="logo"></span>
+            </div>
         </div>
     )
 }
