@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FiMenu, FiShoppingCart } from 'react-icons/fi';
 import {
     logo
@@ -33,8 +33,9 @@ const Sidebar = () => {
             <Backdrop state={ mobileMenuOpen } onClick={() => setMobileMenuOpen(false)} />
             <div className={`fixed w-[300px] z-10 top-0 h-screen
                 smooth-transition ${mobileMenuOpen ? 'left-0 opacity-100' : '-left-full opacity-0'}`}>
-                <aside className="h-full shadow-[0_0_25px_rgba(0,0,0,0.1)] bg-white p-6 md:hidden">
-                123
+                <aside className="flex flex-col gap-2 h-full shadow-[0_0_25px_rgba(0,0,0,0.1)] bg-white p-6 md:hidden">
+                    <Link to="/">Home</Link>
+                    <Link to="/payment">Payment</Link>
                 </aside>
             </div>
         </>

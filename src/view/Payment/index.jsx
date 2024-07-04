@@ -34,7 +34,7 @@ const Payment = () => {
                 "total": {
                     "label": "Demo (Card is not charged)",
                     "amount": {
-                        "value": "27.50",
+                        "value": "1.50",
                         "currency": "USD"
                     }
                 }
@@ -45,8 +45,7 @@ const Payment = () => {
                 "requestBillingAddress": false,
                 "requestPayerEmail": false,
                 "requestPayerPhone": false,
-                "requestShipping": true,
-                "shippingType": "shipping"
+                "requestShipping": false,
             };
             
             // Create PaymentRequest
