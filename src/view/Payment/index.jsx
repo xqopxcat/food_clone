@@ -114,7 +114,7 @@ const Payment = () => {
     
     return (
         <div className="w-full">
-            <div className="w-full flex justify-center items-end border-t-[1px] fixed bottom-0 h-[88px] p-4 bg-white">
+            <div className="w-full flex justify-center items-end border-t-[1px] fixed bottom-0 h-[88px] p-8 bg-white">
                 <div onClick={ onApplePayButtonClicked } className="apple-pay-button-with-text apple-pay-button-black-with-text">
                     <span className="text">Buy with</span>
                     <span className="logo"></span>
