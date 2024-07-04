@@ -1,6 +1,6 @@
 import React from 'react';
-import { FaRegThumbsUp } from 'react-icons/fa6';
-import { Link } from "react-router-dom";
+import { FaRegThumbsUp, FaPlus } from 'react-icons/fa6';
+import { useNavigate } from 'react-router-dom';
 
 const VerticalGridItem = ({
     title,
@@ -8,10 +8,17 @@ const VerticalGridItem = ({
     rating,
     imageUrl,
     description,
-    url
+    url,
+    onAdd
 }) => {
+    const navigate = useNavigate();
+    
+    const handleClick = () => {
+        onAdd();
+        navigate(url);
+    }
     return (
-        <Link to={ url }>
+        <div onClick={ handleClick }>
             <div className="flex justify-between pl-2 pr-3 pb-3">
                 <div className="flex flex-col justify-center pt-1">
                     <div className="text-[16px] leading-5">
@@ -31,18 +38,23 @@ const VerticalGridItem = ({
                 </div>
                 {
                     imageUrl && (
-                        <img
-                            alt={ title }
-                            src={ imageUrl }
-                            aria-hidden="true"
-                            loading="lazy"
-                            decoding="async"
-                            className="h-full min-w-[120px] max-w-[120px] max-h-[112px] min-h-[112px] object-cover rounded-[8px]"
-                        />
+                        <div className="relative">
+                            <img
+                                alt={ title }
+                                src={ imageUrl }
+                                aria-hidden="true"
+                                loading="lazy"
+                                decoding="async"
+                                className="h-full min-w-[120px] max-w-[120px] max-h-[112px] min-h-[112px] object-cover rounded-[8px]"
+                            />
+                            <div className="bottom-2 right-2 absolute p-3 bg-white rounded-full shadow-[0_2px_12px_rgba(0,0,0,0.12)]">
+                                <FaPlus className="relative w-3 h-3" />
+                            </div>
+                        </div>
                     )
                 }
             </div>
-        </Link>
+        </div>
     );
 };
 

@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { FaRegThumbsUp } from 'react-icons/fa6';
+import { useParams, Link } from 'react-router-dom';
+import { FaRegThumbsUp, FaXmark } from 'react-icons/fa6';
 import { menuItems } from '../../constants/menuItem';
+import { useStateContext } from '../../context/StateContext';
 import { Checkbox, ItemTag, NavigationBar, RadioCard, QuantityCounter, QuantitySelector, Button } from '../../components';
 
 const ItemDetails = () => {
-    const { itemId } = useParams();
+    const { name, id, itemId } = useParams();
     const [selected, setSelected] = useState();
+    const {
+        cartItems,
+        totalPrice,
+        totalQuantities,
+        toggleCartItemQuantity,
+        onAdditionalAdd
+    } = useStateContext();
     const filterItems = menuItems.filter(({ uuid }) => uuid === itemId);
-    console.log(filterItems);
     const { 
         title,
         imageUrl,
@@ -19,10 +26,14 @@ const ItemDetails = () => {
     } = filterItems[0] || '';
     
     const preselected = filterItems[0]?.productDetailsItems?.filter(({ type }) => type === 'PRESELECTED_CUSTOMIZATIONS');
-    console.log(preselected);
-    
+    const filterCartItems = cartItems.filter(({ uuid }) => uuid === itemId);
+    // const storageItem = JSON.parse(localStorage.getItem('cartItems'));
+    // console.log(preselected, totalPrice, totalQuantities);
     return (
         <div className="absolute top-0 w-full">
+            <Link to={`/store/${name}/${id}`} className="absolute top-2 left-2 p-4 bg-[#f3f3f3] rounded-full">
+                <FaXmark />
+            </Link>
             <img 
                 src={ imageUrl } 
                 alt={ itemId }
@@ -106,7 +117,11 @@ const ItemDetails = () => {
                                                             maxPermitted === 1 ? (
                                                                 <Checkbox name={ title } />
                                                             ) : (
-                                                                <QuantityCounter value={ defaultQuantity } max={ maxItem } />
+                                                                <QuantityCounter
+                                                                    value={ defaultQuantity }
+                                                                    max={ maxItem }
+                                                                    onChange={ (qty) => onAdditionalAdd(itemId, options[index], qty) }
+                                                                />
                                                             )
                                                         }
                                                     </div>
@@ -131,10 +146,10 @@ const ItemDetails = () => {
                 }
             </div>
             <div className="mx-3 mt-6 mb-[112px]">
-                <QuantitySelector value={ 1 } max={ 10 } />
+                <QuantitySelector value={ filterCartItems?.[0]?.quantity } max={ 10 } onChange={ (value) => { toggleCartItemQuantity(itemId, value) } }/>
             </div>
-            <div className="w-full border-t-[1px] fixed bottom-0 h-[88px] p-4">
-                <Button extendClass="w-full" title="新增 1 項商品至訂單 • $155"/>
+            <div className="w-full border-t-[1px] fixed bottom-0 h-[88px] p-4 bg-white">
+                <Button extendClass="w-full" title={`新增 ${totalQuantities} 項商品至訂單 • $${totalPrice / 100}`}/>
             </div>
         </div>
     )

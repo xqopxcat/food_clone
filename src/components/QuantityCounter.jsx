@@ -1,20 +1,23 @@
 import React, { useState } from 'react'
 import { FiMinus, FiPlus } from "react-icons/fi";
 
-const QuantityCounter = ({ value, max }) => {
+const QuantityCounter = ({ value, max, onChange }) => {
     const [qty, setQty] = useState(value);
     
     const incQty = () => {
         if (qty >= max) return;
-        setQty((prevQty) => prevQty + 1);
+        setQty((prevQty) => {
+            return prevQty + 1
+        });
+        onChange(1);
     }
     
     const decQty = () => {
         setQty((prevQty) => {
             if (prevQty - 1 < 0) return 0;
-            
             return prevQty - 1;
         });
+        onChange(-1);
     }
     
     return (

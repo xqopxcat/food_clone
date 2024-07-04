@@ -93,10 +93,6 @@ const Home = () => {
     const [priceType, setPriceType] = useState('價格');
     const [queryPayload, setQueryPayload] = useState(defaultPayload);
     const feedItems = FEED.feedItems.filter(({ type }) => type === 'REGULAR_STORE');
-    console.log(feedItems);
-    // useEffect(() => {
-    //     console.log(feed);
-    // }, []);
     
     const handleTypeClick = () => {
         setType(delivery);
@@ -331,7 +327,6 @@ const Home = () => {
             <div className="flex flex-col gap-6 p-4">
                 {
                     feedItems.map(({ store }, index) => {
-                        console.log(store.rating, index);
                         return (
                             <ListRestaurant
                                 store={ store }

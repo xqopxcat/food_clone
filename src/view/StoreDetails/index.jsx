@@ -3,14 +3,16 @@ import { useParams } from 'react-router-dom';
 import { FaRegStar } from 'react-icons/fa6';
 import { BsPersonPlusFill } from "react-icons/bs";
 import { details } from '../../constants/details';
+import { useStateContext } from '../../context/StateContext';
 import { NavigationBar, HorizontalGridItem, VerticalGridItem, TabSwitch, TagButton } from "../../components";
 import { DELIVERY_TYPE } from "../Home";
 
 
 const StoreDetails = () => {
     const { name, id } = useParams();
+    const { onAdd } = useStateContext();
     const filterDetails = details.filter(({ slug }) => slug === name)[0] || details[0];
-    console.log(filterDetails);
+    // console.log(filterDetails);
     const { 
         heroImageUrls,
         catalogSectionsMap,
@@ -91,7 +93,8 @@ const StoreDetails = () => {
                             <h3 className="mt-4 mb-3 pl-2 leading-7 text-[20px] font-bold">{ standardItemsPayload.title.text }</h3>
                             <NavigationBar>
                                 {
-                                    standardItemsPayload.catalogItems.map(({ title, price, imageUrl, labelPrimary }) => {
+                                    standardItemsPayload.catalogItems.map((element) => {
+                                        const { uuid, title, price, imageUrl, labelPrimary } = element;
                                         const rating = labelPrimary.accessibilityText.split(', ')[1];
                                         return (
                                             <HorizontalGridItem
@@ -99,6 +102,8 @@ const StoreDetails = () => {
                                                 price={ price }
                                                 rating={ rating }
                                                 imageUrl={ imageUrl }
+                                                onAdd={ () => onAdd(element, 1) }
+                                                url={ uuid }
                                             />
                                         );
                                     })
@@ -117,7 +122,8 @@ const StoreDetails = () => {
                         <div className="pl-2">
                             <h3 className="mt-4 mb-3 pl-2 leading-7 text-[20px] font-bold">{ standardItemsPayload.title.text }</h3>
                             {
-                                standardItemsPayload.catalogItems.map(({ uuid, title, price, imageUrl, labelPrimary, itemDescription }) => {
+                                standardItemsPayload.catalogItems.map((element) => {
+                                    const { uuid, title, price, imageUrl, labelPrimary, itemDescription } = element;
                                     const rating = labelPrimary.accessibilityText.split(', ')[1];
                                     return (
                                         <>
@@ -127,7 +133,8 @@ const StoreDetails = () => {
                                                 rating={ rating }
                                                 imageUrl={ imageUrl }
                                                 description={ itemDescription }
-                                                url={ `${uuid}` }
+                                                onAdd={ () => onAdd(element, 1) }
+                                                url={ uuid }
                                             />
                                             <div className="w-full border px-2 mb-3" />
                                         </>

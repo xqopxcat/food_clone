@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FiMinus, FiPlus } from "react-icons/fi";
 
-const QuantitySelector = ({ value, max }) => {
+const QuantitySelector = ({ value, max, onChange }) => {
     const [qty, setQty] = useState(value);
     
     const incQty = () => {
         if (qty >= max) return;
         setQty((prevQty) => prevQty + 1);
+        onChange('inc');
     }
     
     const decQty = () => {
@@ -15,6 +16,7 @@ const QuantitySelector = ({ value, max }) => {
             
             return prevQty - 1;
         });
+        onChange('dec');
     }
     
     return (
