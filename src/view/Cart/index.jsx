@@ -79,7 +79,7 @@ const Cart = () => {
                 <Link to="/" className="fixed z-50 top-2 left-2 p-4 bg-[#f3f3f3] rounded-full">
                     <FaXmark className="w-5 h-5" />
                 </Link>
-                <div className="flex flex-col w-full gap-[16px] mt-14">
+                <div className="flex flex-col w-full gap-4 mt-14">
                     <Link className="text-[24px] font-bold leading-8" to={`/store/${storeStorage}/${storeIDstorage}`} >
                         { storeStorage }
                     </Link>
@@ -89,7 +89,7 @@ const Cart = () => {
                             const additionalSum = additionalPrice.reduce((partialSum, a) => partialSum + a, 0);
                             return (
                                 <div onClick={ () => {} } className="flex items-center justify-between gap-4 whitespace-nowrap">
-                                    <div className="flex items-center gap-[16px] my-5">
+                                    <div className="flex items-center my-5">
                                         <img
                                             alt={ title }
                                             src={ imageUrl }
@@ -98,7 +98,7 @@ const Cart = () => {
                                             decoding="async"
                                             className="h-full min-w-[72px] max-w-[72px] max-h-[72px] min-h-[72px] object-cover rounded-[8px]"
                                         />
-                                        <div className="pt-1">
+                                        <div className="pt-1 ml-[16px]">
                                             <div className="text-[16px] leading-5">
                                                 <span>{ title }</span>
                                             </div>
