@@ -89,7 +89,7 @@ const Cart = () => {
                             const additionalSum = additionalPrice.reduce((partialSum, a) => partialSum + a, 0);
                             return (
                                 <div onClick={ () => {} } className="flex items-center justify-between gap-4 whitespace-nowrap">
-                                    <div className="flex items-center gap-4 my-5">
+                                    <div className="flex items-center gap-[16px] my-5">
                                         <img
                                             alt={ title }
                                             src={ imageUrl }
