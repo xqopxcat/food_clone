@@ -79,7 +79,7 @@ const Cart = () => {
                 <Link to="/" className="fixed z-50 top-2 left-2 p-4 bg-[#f3f3f3] rounded-full">
                     <FaXmark className="w-5 h-5" />
                 </Link>
-                <div className="flex flex-col w-full gap-4 mt-14">
+                <div className="flex flex-col w-full gap-[16px] mt-14">
                     <Link className="text-[24px] font-bold leading-8" to={`/store/${storeStorage}/${storeIDstorage}`} >
                         { storeStorage }
                     </Link>
