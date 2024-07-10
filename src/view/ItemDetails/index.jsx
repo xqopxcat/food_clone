@@ -37,11 +37,17 @@ const ItemDetails = () => {
     const filterCartItems = cartItems.filter(({ uuid }) => uuid === itemId);
     
     const handleOrder = () => {
+        const order = JSON.parse(orderStorage);
+        let updatedOrder = cartItems;
+        if (order) {
+            console.log('test', order)
+            updatedOrder = [...order, cartItems[0]]
+        }
         setStoreStorage(name);
         setStoreIDstorage(id);
-        setQuantitiesStorage(totalQuantities);
-        setPriceStorage(totalPrice);
-        setOrderStorage(JSON.stringify(cartItems));
+        setQuantitiesStorage(parseInt(quantitiesStorage || 0) + parseInt(totalQuantities));
+        setPriceStorage(parseInt(priceStorage || 0) + parseInt(totalPrice));
+        setOrderStorage(JSON.stringify(updatedOrder));
         onEmpty();
         navigate(`/store/${name}/${id}`);
     }
