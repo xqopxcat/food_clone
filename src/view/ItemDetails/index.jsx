@@ -1,19 +1,27 @@
-import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { FaRegThumbsUp, FaXmark } from 'react-icons/fa6';
 import { menuItems } from '../../constants/menuItem';
 import { useStateContext } from '../../context/StateContext';
 import { Checkbox, ItemTag, NavigationBar, RadioCard, QuantityCounter, QuantitySelector, Button } from '../../components';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 const ItemDetails = () => {
     const { name, id, itemId } = useParams();
     const [selected, setSelected] = useState();
+    const navigate = useNavigate();
+    const [orderStorage, setOrderStorage] = useLocalStorage('order');
+    const [storeStorage, setStoreStorage] = useLocalStorage('store');
+    const [storeIDstorage, setStoreIDstorage] = useLocalStorage('storeID');
+    const [quantitiesStorage, setQuantitiesStorage] = useLocalStorage('quantities');
+    const [priceStorage, setPriceStorage] = useLocalStorage('price');
     const {
         cartItems,
         totalPrice,
         totalQuantities,
         toggleCartItemQuantity,
-        onAdditionalAdd
+        onAdditionalAdd,
+        onEmpty,
     } = useStateContext();
     const filterItems = menuItems.filter(({ uuid }) => uuid === itemId);
     const { 
@@ -27,8 +35,17 @@ const ItemDetails = () => {
     
     const preselected = filterItems[0]?.productDetailsItems?.filter(({ type }) => type === 'PRESELECTED_CUSTOMIZATIONS');
     const filterCartItems = cartItems.filter(({ uuid }) => uuid === itemId);
-    // const storageItem = JSON.parse(localStorage.getItem('cartItems'));
-    // console.log(preselected, totalPrice, totalQuantities);
+    
+    const handleOrder = () => {
+        setStoreStorage(name);
+        setStoreIDstorage(id);
+        setQuantitiesStorage(totalQuantities);
+        setPriceStorage(totalPrice);
+        setOrderStorage(JSON.stringify(cartItems));
+        onEmpty();
+        navigate(`/store/${name}/${id}`);
+    }
+    
     return (
         <div className="absolute top-0 w-full">
             <Link to={`/store/${name}/${id}`} className="absolute top-2 left-2 p-4 bg-[#f3f3f3] rounded-full">
@@ -149,7 +166,7 @@ const ItemDetails = () => {
                 <QuantitySelector value={ filterCartItems?.[0]?.quantity } max={ 10 } onChange={ (value) => { toggleCartItemQuantity(itemId, value) } }/>
             </div>
             <div className="w-full border-t-[1px] fixed bottom-0 h-[88px] p-4 bg-white">
-                <Button extendClass="w-full" title={`新增 ${totalQuantities} 項商品至訂單 • $${totalPrice / 100}`}/>
+                <Button onClick={ handleOrder } extendClass="w-full" title={`新增 ${totalQuantities} 項商品至訂單 • $${totalPrice / 100}`}/>
             </div>
         </div>
     )

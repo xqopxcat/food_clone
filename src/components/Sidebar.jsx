@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FiMenu, FiShoppingCart } from 'react-icons/fi';
 import {
     logo
 } from '../assets';
 import { Backdrop } from './';
+import useLocalStorage from "../hooks/useLocalStorage";
+
 
 const Sidebar = () => {
     const navigate = useNavigate();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    
+
     return (
         <>
             <header>
-                <div className="mt-20 w-full">
+                <div className="w-full">
                     <div className="flex justify-start items-center h-12 px-4">
                         <div className="mr-[10px] ml-[-6px]">
                             <button type="button" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="flex items-center justify-center h-9 w-9">
@@ -23,8 +25,15 @@ const Sidebar = () => {
                         <img height="16px" className="h-4" src={ logo } alt="logo" onClick={() => navigate('/')}/>
                         <div className="flex-1"></div>
                         <div className="ml-2">
-                            <button className="flex items-center justify-center h-9 w-9">
+                            <button onClick={() => navigate('/cart')} className="relative flex items-center justify-center h-9 w-9">
                                 <FiShoppingCart className="h-5 w-5" />
+                                {
+                                    JSON.parse(localStorage.getItem('order')) && JSON.parse(localStorage.getItem('order')).length > 0 && (
+                                        <div className="absolute top-[-2px] right-[-2px] flex items-center justify-center rounded-3xl w-5 h-5 text-white bg-[#0E838B] text-[12px] leading-4 font-medium">
+                                            { JSON.parse(localStorage.getItem('order')).length }
+                                        </div>
+                                    )
+                                }
                             </button>
                         </div>
                     </div>

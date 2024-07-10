@@ -132,6 +132,12 @@ const StateContext = ({ children }) => {
         // setTotalQuantitiesStorage(JSON.stringify(totalQuantities));
     }
     
+    const onEmpty = () => {
+        setCartItems([]);
+        setTotalPrice(0);
+        setTotalQuantities(0);
+    }
+    
     return (
         <Context.Provider
             value={ {
@@ -142,6 +148,7 @@ const StateContext = ({ children }) => {
                 onAdditionalAdd,
                 toggleCartItemQuantity,
                 onRemove,
+                onEmpty,
                 setCartItems,
                 setTotalPrice,
                 setTotalQuantities,

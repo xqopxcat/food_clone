@@ -17,6 +17,7 @@ import ItemTag from './ItemTag';
 import RadioCard from './RadioCard';
 import QuantityCounter from './QuantityCounter';
 import QuantitySelector from './QuantitySelector';
+import CartQuantity from './CartQuantity';
 
 export {
     Backdrop,
@@ -37,5 +38,6 @@ export {
     ItemTag,
     RadioCard,
     QuantityCounter,
-    QuantitySelector
+    QuantitySelector,
+    CartQuantity
 }

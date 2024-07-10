@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FiMinus, FiPlus, FiTrash } from "react-icons/fi";
 
-const QuantitySelector = ({ value, max, delIcon, onChange }) => {
+const CartQuantity = ({ value, max, delIcon, onChange }) => {
     const [qty, setQty] = useState(value);
     
     const incQty = () => {
@@ -22,7 +22,7 @@ const QuantitySelector = ({ value, max, delIcon, onChange }) => {
     return (
         <div className="flex items-center w-fit rounded-full bg-[#f3f3f3]">
             <span className="flex justify-center items-center w-9 h-9 " onClick={ decQty }>
-                {delIcon && qty === 1 ? <FiTrash className="h-4 w-4" /> : <FiMinus className="h-4 w-4" />}
+                {qty === 1 ? <FiTrash className="h-4 w-4" /> : <FiMinus className="h-4 w-4" />}
             </span>
             <span className="mx-3 text-[14px] leading-5 bg-[#f3f3f3]">
                 { qty }
@@ -34,4 +34,4 @@ const QuantitySelector = ({ value, max, delIcon, onChange }) => {
     )
 }
 
-export default QuantitySelector;
+export default CartQuantity;
