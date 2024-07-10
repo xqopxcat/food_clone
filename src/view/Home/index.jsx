@@ -324,7 +324,7 @@ const Home = () => {
                     </NavigationBar>
                 </div>
             </div>
-            <div className="flex flex-col gap-6 p-4">
+            <div className="flex flex-col mb-6 p-4">
                 {
                     feedItems.map(({ store }, index) => {
                         return (
