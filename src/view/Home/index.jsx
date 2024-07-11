@@ -287,7 +287,7 @@ const Home = () => {
                             onReset={ handleReset }
                             extendClass={ `ml-1 mr-2 ${priceType !== '價格' ? 'bg-black text-white' : ''}` }
                         >
-                            <div className="flex w-full gap-3 p-4">
+                            <div className="flex w-full p-4 ">
                                 {
                                     PRICE_ITEMS.map((item) => {
                                         return (
@@ -295,7 +295,7 @@ const Home = () => {
                                                 active={ queryPayload.price.includes(item) }
                                                 value={ item }
                                                 onClick={ () => handleQueryPayload('PRICE')(item) }
-                                                extendClass="grow px-3 py-[10px] justify-center h-9"
+                                                extendClass="grow mr-3 px-3 py-[10px] justify-center h-9 last:mr-0"
                                             />
                                         );
                                     })
