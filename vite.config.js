@@ -35,78 +35,78 @@ export default defineConfig({
                 "orientation": "portrait",
                 "prefer_related_applications": false
             },
-            workbox: {
-                globPatterns: [],
-                ignoreURLParametersMatching: [/.*/],
-                runtimeCaching: [
-                    {
-                        urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-                        handler: 'CacheFirst',
-                        options: {
-                            cacheName: 'images',
-                            expiration: {
-                                maxEntries: 30
-                            }
-                        }
-                    },
-                    {
-                        urlPattern: /.*\.js.*/,
-                        handler: 'NetworkFirst',
-                        options: {
-                            cacheName: 'js',
-                            expiration: {
-                                maxEntries: 30,
-                                maxAgeSeconds: 30 * 24 * 60 * 60
-                            },
-                            cacheableResponse: {
-                                statuses: [200, 304]
-                            }
-                        }
-                    },
-                    {
-                        urlPattern: /.*\.css.*/,
-                        handler: 'CacheFirst',
-                        options: {
-                            cacheName: 'css',
-                            expiration: {
-                                maxEntries: 30,
-                                maxAgeSeconds: 30 * 24 * 60 * 60
-                            },
-                            cacheableResponse: {
-                                statuses: [200]
-                            }
-                        }
-                    },
-                    {
-                        urlPattern: /.*\.html.*/,
-                        handler: 'NetworkFirst',
-                        options: {
-                            cacheName: 'html',
-                            expiration: {
-                                maxEntries: 30,
-                                maxAgeSeconds: 30 * 24 * 60 * 60
-                            },
-                            cacheableResponse: {
-                                statuses: [200]
-                            }
-                        }
-                    },
-                    {
-                        urlPattern: /.*\.jsx.*/,
-                        handler: 'NetworkFirst',
-                        options: {
-                            cacheName: 'jsx',
-                            expiration: {
-                                maxEntries: 30,
-                                maxAgeSeconds: 30 * 24 * 60 * 60
-                            },
-                            cacheableResponse: {
-                                statuses: [200, 304]
-                            }
-                        }
-                    },
-                ]
-            }
+            // workbox: {
+            //     globPatterns: [],
+            //     ignoreURLParametersMatching: [/.*/],
+            //     runtimeCaching: [
+            //         {
+            //             urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+            //             handler: 'CacheFirst',
+            //             options: {
+            //                 cacheName: 'images',
+            //                 expiration: {
+            //                     maxEntries: 30
+            //                 }
+            //             }
+            //         },
+            //         {
+            //             urlPattern: /.*\.js.*/,
+            //             handler: 'NetworkFirst',
+            //             options: {
+            //                 cacheName: 'js',
+            //                 expiration: {
+            //                     maxEntries: 30,
+            //                     maxAgeSeconds: 30 * 24 * 60 * 60
+            //                 },
+            //                 cacheableResponse: {
+            //                     statuses: [200, 304]
+            //                 }
+            //             }
+            //         },
+            //         {
+            //             urlPattern: /.*\.css.*/,
+            //             handler: 'CacheFirst',
+            //             options: {
+            //                 cacheName: 'css',
+            //                 expiration: {
+            //                     maxEntries: 30,
+            //                     maxAgeSeconds: 30 * 24 * 60 * 60
+            //                 },
+            //                 cacheableResponse: {
+            //                     statuses: [200]
+            //                 }
+            //             }
+            //         },
+            //         {
+            //             urlPattern: /.*\.html.*/,
+            //             handler: 'NetworkFirst',
+            //             options: {
+            //                 cacheName: 'html',
+            //                 expiration: {
+            //                     maxEntries: 30,
+            //                     maxAgeSeconds: 30 * 24 * 60 * 60
+            //                 },
+            //                 cacheableResponse: {
+            //                     statuses: [200]
+            //                 }
+            //             }
+            //         },
+            //         {
+            //             urlPattern: /.*\.jsx.*/,
+            //             handler: 'NetworkFirst',
+            //             options: {
+            //                 cacheName: 'jsx',
+            //                 expiration: {
+            //                     maxEntries: 30,
+            //                     maxAgeSeconds: 30 * 24 * 60 * 60
+            //                 },
+            //                 cacheableResponse: {
+            //                     statuses: [200, 304]
+            //                 }
+            //             }
+            //         },
+            //     ]
+            // }
         })
     ],
 })
