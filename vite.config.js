@@ -51,7 +51,7 @@ export default defineConfig({
                     },
                     {
                         urlPattern: /.*\.js.*/,
-                        handler: 'StaleWhileRevalidate',
+                        handler: 'NetworkFirst',
                         options: {
                             cacheName: 'js',
                             expiration: {
@@ -79,7 +79,7 @@ export default defineConfig({
                     },
                     {
                         urlPattern: /.*\.html.*/,
-                        handler: 'CacheFirst',
+                        handler: 'NetworkFirst',
                         options: {
                             cacheName: 'html',
                             expiration: {
@@ -93,7 +93,7 @@ export default defineConfig({
                     },
                     {
                         urlPattern: /.*\.jsx.*/,
-                        handler: 'StaleWhileRevalidate',
+                        handler: 'NetworkFirst',
                         options: {
                             cacheName: 'jsx',
                             expiration: {
