@@ -37,6 +37,7 @@ export default defineConfig({
             },
             workbox: {
                 globPatterns: [],
+            ignoreURLParametersMatching: [/.*/],
                 runtimeCaching: [
                     {
                         urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
