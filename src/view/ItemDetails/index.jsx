@@ -22,6 +22,7 @@ const ItemDetails = () => {
         toggleCartItemQuantity,
         onAdditionalAdd,
         onEmpty,
+        onRemove,
     } = useStateContext();
     const filterItems = menuItems.filter(({ uuid }) => uuid === itemId);
     const { 
@@ -40,7 +41,6 @@ const ItemDetails = () => {
         const order = JSON.parse(orderStorage);
         let updatedOrder = cartItems;
         if (order) {
-            console.log('test', order)
             updatedOrder = [...order, cartItems[0]]
         }
         setStoreStorage(name);
@@ -52,9 +52,13 @@ const ItemDetails = () => {
         navigate(`/store/${name}/${id}`);
     }
     
+    const handleBack = () => {
+        onRemove(filterItems[0]);
+    }
+    
     return (
         <div className="absolute top-0 w-full">
-            <Link to={`/store/${name}/${id}`} className="absolute top-2 left-2 p-4 bg-[#f3f3f3] rounded-full">
+            <Link onClick={ handleBack } to={`/store/${name}/${id}`} className="absolute top-2 left-2 p-4 bg-[#f3f3f3] rounded-full">
                 <FaXmark />
             </Link>
             <img 
