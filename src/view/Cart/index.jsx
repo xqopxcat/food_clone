@@ -50,7 +50,6 @@ const Cart = () => {
             setPriceStorage(updatedPrice);
         }
         else if (value === 'dec') {
-            console.log(selectOrder);
             if (selectOrder[0].quantity > 1) {
                 selectOrder[0].quantity -= 1
                 const item = order.map((el) => {

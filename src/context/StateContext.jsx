@@ -41,9 +41,6 @@ const StateContext = ({ children }) => {
             
             setCartItems([ ...cartItems, { ...product } ]);
         }
-        // setCartStorage(JSON.stringify(cartItems));
-        // setTotalPriceStorage(JSON.stringify(totalPrice));
-        // setTotalQuantitiesStorage(JSON.stringify(totalQuantities));
     }
     
     const onRemove = (product) => {

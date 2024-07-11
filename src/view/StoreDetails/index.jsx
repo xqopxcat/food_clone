@@ -12,7 +12,6 @@ const StoreDetails = () => {
     const { name, id } = useParams();
     const { onAdd } = useStateContext();
     const filterDetails = details.filter(({ slug }) => slug === name)[0] || details[0];
-    // console.log(filterDetails);
     const { 
         heroImageUrls,
         catalogSectionsMap,
