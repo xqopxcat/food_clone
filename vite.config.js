@@ -35,77 +35,77 @@ export default defineConfig({
                 "orientation": "portrait",
                 "prefer_related_applications": false
             },
-            workbox: {
-                globPatterns: [],
-                runtimeCaching: [
-                    {
-                        urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-                        handler: 'CacheFirst',
-                        options: {
-                            cacheName: 'images',
-                            expiration: {
-                                maxEntries: 30
-                            }
-                        }
-                    },
-                    {
-                        urlPattern: /.*\.js.*/,
-                        handler: 'CacheFirst',
-                        options: {
-                            cacheName: 'js',
-                            expiration: {
-                                maxEntries: 30,
-                                maxAgeSeconds: 30 * 24 * 60 * 60
-                            },
-                            cacheableResponse: {
-                                statuses: [200, 304]
-                            }
-                        }
-                    },
-                    {
-                        urlPattern: /.*\.css.*/,
-                        handler: 'CacheFirst',
-                        options: {
-                            cacheName: 'css',
-                            expiration: {
-                                maxEntries: 30,
-                                maxAgeSeconds: 30 * 24 * 60 * 60
-                            },
-                            cacheableResponse: {
-                                statuses: [200]
-                            }
-                        }
-                    },
-                    {
-                        urlPattern: /.*\.html.*/,
-                        handler: 'CacheFirst',
-                        options: {
-                            cacheName: 'html',
-                            expiration: {
-                                maxEntries: 30,
-                                maxAgeSeconds: 30 * 24 * 60 * 60
-                            },
-                            cacheableResponse: {
-                                statuses: [200]
-                            }
-                        }
-                    },
-                    {
-                        urlPattern: /.*\.jsx.*/,
-                        handler: 'CacheFirst',
-                        options: {
-                            cacheName: 'jsx',
-                            expiration: {
-                                maxEntries: 30,
-                                maxAgeSeconds: 30 * 24 * 60 * 60
-                            },
-                            cacheableResponse: {
-                                statuses: [200, 304]
-                            }
-                        }
-                    },
-                ]
-            }
+            // workbox: {
+            //     globPatterns: [],
+            //     runtimeCaching: [
+            //         {
+            //             urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+            //             handler: 'CacheFirst',
+            //             options: {
+            //                 cacheName: 'images',
+            //                 expiration: {
+            //                     maxEntries: 30
+            //                 }
+            //             }
+            //         },
+            //         {
+            //             urlPattern: /.*\.js.*/,
+            //             handler: 'CacheFirst',
+            //             options: {
+            //                 cacheName: 'js',
+            //                 expiration: {
+            //                     maxEntries: 30,
+            //                     maxAgeSeconds: 30 * 24 * 60 * 60
+            //                 },
+            //                 cacheableResponse: {
+            //                     statuses: [200, 304]
+            //                 }
+            //             }
+            //         },
+            //         {
+            //             urlPattern: /.*\.css.*/,
+            //             handler: 'CacheFirst',
+            //             options: {
+            //                 cacheName: 'css',
+            //                 expiration: {
+            //                     maxEntries: 30,
+            //                     maxAgeSeconds: 30 * 24 * 60 * 60
+            //                 },
+            //                 cacheableResponse: {
+            //                     statuses: [200]
+            //                 }
+            //             }
+            //         },
+            //         {
+            //             urlPattern: /.*\.html.*/,
+            //             handler: 'CacheFirst',
+            //             options: {
+            //                 cacheName: 'html',
+            //                 expiration: {
+            //                     maxEntries: 30,
+            //                     maxAgeSeconds: 30 * 24 * 60 * 60
+            //                 },
+            //                 cacheableResponse: {
+            //                     statuses: [200]
+            //                 }
+            //             }
+            //         },
+            //         {
+            //             urlPattern: /.*\.jsx.*/,
+            //             handler: 'CacheFirst',
+            //             options: {
+            //                 cacheName: 'jsx',
+            //                 expiration: {
+            //                     maxEntries: 30,
+            //                     maxAgeSeconds: 30 * 24 * 60 * 60
+            //                 },
+            //                 cacheableResponse: {
+            //                     statuses: [200, 304]
+            //                 }
+            //             }
+            //         },
+            //     ]
+            // }
         })
     ],
 })
