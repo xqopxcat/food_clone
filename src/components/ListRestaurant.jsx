@@ -11,7 +11,7 @@ const ListRestaurant = ({ store }) => {
     }).join();
     
     return (
-        <Link to={ actionUrl } >
+        <Link to={ actionUrl } className="mb-6">
             <div className="h-[148px] bg-[#F3F3F3]">
                 <picture>
                     <source type="image/webp" srcSet={`https://cn-geo1.uber.com/image-proc/resize/eats/format=webp/width=550/height=440/quality=70/srcb64=${b64EncodeUnicode(imageItem.filter(({ width }) => width === 550 )[0].url)}`} />
