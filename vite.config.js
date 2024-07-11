@@ -37,7 +37,7 @@ export default defineConfig({
             },
             workbox: {
                 globPatterns: [],
-            ignoreURLParametersMatching: [/.*/],
+                ignoreURLParametersMatching: [/.*/],
                 runtimeCaching: [
                     {
                         urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
@@ -51,7 +51,7 @@ export default defineConfig({
                     },
                     {
                         urlPattern: /.*\.js.*/,
-                        handler: 'CacheFirst',
+                        handler: 'StaleWhileRevalidate',
                         options: {
                             cacheName: 'js',
                             expiration: {
