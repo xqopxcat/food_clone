@@ -11,6 +11,10 @@ const Sidebar = () => {
     const navigate = useNavigate();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+    const onItemClick = () => {
+        setMobileMenuOpen(false)
+    }
+    
     return (
         <>
             <header>
@@ -42,8 +46,8 @@ const Sidebar = () => {
             <div className={`fixed w-[300px] z-10 top-0 h-screen
                 smooth-transition ${mobileMenuOpen ? 'left-0 opacity-100' : '-left-full opacity-0'}`}>
                 <aside className="flex flex-col gap-2 h-full shadow-[0_0_25px_rgba(0,0,0,0.1)] bg-white p-6 md:hidden">
-                    <Link to="/">Home</Link>
-                    <Link to="/payment">Payment</Link>
+                    <Link onClick={ onItemClick } to="/">Home</Link>
+                    <Link onClick={ onItemClick } to="/payment">Payment</Link>
                 </aside>
             </div>
         </>

@@ -197,7 +197,7 @@ const Home = () => {
                         {
                             FEED.diningModes.map(({ mode, title }, index) => {
                                 return (
-                                    <div key={ mode } className="flex items-center h-[72px]" onClick={ () => setDelivery(title) }>
+                                    <div key={ title } className="flex items-center h-[72px]" onClick={ () => setDelivery(title) }>
                                         <div className="flex justify-center items-center w-16 h-16">
                                             { mode === "DELIVERY" ? <FaBagShopping className="w-6 h-6"/> : <FaPersonWalkingLuggage className="w-6 h-6"/> }
                                         </div>

@@ -87,7 +87,7 @@ const Cart = () => {
                             const additionalPrice = additionalItem ? additionalItem.map(({ price }) => price) : [];
                             const additionalSum = additionalPrice.reduce((partialSum, a) => partialSum + a, 0);
                             return (
-                                <div onClick={ () => {} } className="flex items-center justify-between gap-4 whitespace-nowrap">
+                                <div key={ uuid } onClick={ () => {} } className="flex items-center justify-between gap-4 whitespace-nowrap">
                                     <div className="flex items-center my-5">
                                         <img
                                             alt={ title }

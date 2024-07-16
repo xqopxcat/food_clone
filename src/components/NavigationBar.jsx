@@ -24,14 +24,20 @@ const NavigationItem = ({ title, icon, active, onClick }) => {
     )
 }
 
-const NavigationBar = ({ items, children }) => {
+const NavigationBar = ({ items, children, onClick }) => {
     const [activeType, setActiveType] = useState();
+    
+    const handleItemClick = (value) => {
+        setActiveType(value);
+        onClick(value);
+    }
+    
     return (
         <nav className="p-[4px_0px_2px_8px] no-scrollbar overflow-y-auto">
             <ul className="flex flex-row gap-1">
                 {
                     children ?? items.map(({ title, icon}) => {
-                        return <NavigationItem title={ title } icon={ icon } active={ title === activeType } onClick={ setActiveType } />
+                        return <NavigationItem key={ title } title={ title } icon={ icon } active={ title === activeType } onClick={ handleItemClick } />
                     })
                 }
             </ul>

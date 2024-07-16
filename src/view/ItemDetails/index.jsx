@@ -82,7 +82,7 @@ const ItemDetails = () => {
                     {
                         endorsementTags?.map(({ text, leadingIcon }) => {
                             return (
-                                <ItemTag icon={ leadingIcon && <FaRegThumbsUp />} text={ text } />
+                                <ItemTag key={ text } icon={ leadingIcon && <FaRegThumbsUp />} text={ text } />
                             )
                         })
                     }
@@ -142,7 +142,12 @@ const ItemDetails = () => {
                                                         </div>
                                                         {
                                                             maxPermitted === 1 ? (
-                                                                <Checkbox name={ title } />
+                                                                <Checkbox
+                                                                    name={ title }
+                                                                    onChange={ (e) => {
+                                                                        onAdditionalAdd(itemId, options[index], e.target.checked ? 1 : -1)
+                                                                    }}
+                                                                />
                                                             ) : (
                                                                 <QuantityCounter
                                                                     value={ defaultQuantity }

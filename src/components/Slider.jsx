@@ -14,7 +14,7 @@ const Slider = ({ items, value, onChange, direction = 'right' }) => {
                 {
                     items.map((item) => {
                         return (
-                            <div className="text-[14px]">{ item.title }</div>
+                            <div key={ item.title } className="text-[14px]">{ item.title }</div>
                         )
                     })
                 }
