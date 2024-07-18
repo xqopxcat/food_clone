@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FiChevronDown, FiSearch } from 'react-icons/fi';
 import { AiOutlineTag } from 'react-icons/ai';
 import { FaBagShopping, FaPersonWalkingLuggage, FaMedal, FaRegStar, FaCheck } from 'react-icons/fa6';
@@ -92,19 +92,24 @@ const Home = () => {
     const [rankType, setRankType] = useState('評分');
     const [priceType, setPriceType] = useState('價格');
     const [queryPayload, setQueryPayload] = useState(defaultPayload);
-    const [searchIntersect, setSearchIntersect] = useState(false);
+    const [isIntersection, setIsIntersection] = useState(false);
+    const searchRef = useRef(null);
+    
     const feedItems = FEED.feedItems.filter(({ type }) => type === 'REGULAR_STORE');
     const option = {
         rootMargin: "4px 0px 4px 0px",
         threshold: 0
     };
+    
     const callback = (entries, observe) => {
-        setSearchIntersect(!entries[0].isIntersecting);
+        console.log(entries[0].isIntersecting);
+        setIsIntersection(!entries[0].isIntersecting);
     }
     
     useEffect(() => {
         const observer = new IntersectionObserver(callback, option);
-        observer.observe(document.querySelector('.search'));
+        observer.observe(searchRef.current);
+        return () => observer.disconnect();
     }, []);
     
     const handleTypeClick = () => {
@@ -225,8 +230,14 @@ const Home = () => {
                         </div>
                     </Dropdown>
                 </div>
-                <div className="search"></div>
-                <div className={`py-1 ${ searchIntersect ? 'fixed w-full top-0 bg-white px-4' : 'mx-4 '}`}>
+                <div ref={ searchRef } className="search"></div>
+                {
+                    isIntersection && (
+                        <div className="h-[56px]"></div>
+                    )
+                }
+                
+                <div className={`py-1 ${ isIntersection ? 'fixed w-full top-0 bg-white px-4' : 'mx-4 '}`}>
                     <button className="w-full rounded-[500px] bg-[#F3F3F3] h-12">
                         <div className="flex items-center">
                             <FiSearch className="mx-4"/>
